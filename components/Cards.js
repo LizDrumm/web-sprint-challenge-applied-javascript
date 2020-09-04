@@ -31,8 +31,8 @@ const entryPoint = document.querySelector ('div.cards-container')
 function cardMaker(articleObj){
 
     const card = document.createElement('div')
-    const headline = document.createElement('headline')
-    const author = document.createElement ('author')
+    const headline = document.createElement('div')
+    const author = document.createElement ('div')
     const imgContainer = document.createElement ('div')
     const img = document.createElement ('img')
     const authorName = document.createElement ('span')
