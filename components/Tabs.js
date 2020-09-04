@@ -41,8 +41,8 @@ axios.get ('https://lambda-times-api.herokuapp.com/topics')
 .then (stuff =>{
     const tabArray= stuff.data.topics
     tabArray.forEach(topic =>{
-    const tab = tabMaker (topic)
-})
+        const tab = tabMaker (topic)
+    })
 })
 .catch(err =>{
     console.log('error',err)

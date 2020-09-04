@@ -55,6 +55,13 @@ function cardMaker(articleObj){
     author.appendChild(authorName)
     imgContainer.appendChild(img)
 
+
+//click event to console.log headlines!
+    card.addEventListener ('click', event =>{
+        console.log(headline)
+      
+    });
+
     return card
 
 }
@@ -66,16 +73,16 @@ axios.get ("https://lambda-times-api.herokuapp.com/articles")
     
         infoArray.forEach((item) =>{
             let cardInfo= item;
-           //console.log (articleloop[1]);
+           //console.log (cardInfo[1]);
            cardInfo.forEach((obj) =>{
-           let newCard = cardMaker(obj)
-           entryPoint.appendChild(newCard)
-                
-                }) 
+            let newCard = cardMaker(obj)
+            entryPoint.appendChild(newCard)
+                    
+            }) 
 
-            })       
-        })
+        })      
+    })
     
  .catch(err =>{
-    console.log('error',err)
-  })
+        console.log('error',err)
+    })
