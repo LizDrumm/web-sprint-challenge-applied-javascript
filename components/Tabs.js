@@ -17,43 +17,34 @@
 // </div>
 // </div>
 
+//{"topics":["javascript","bootstrap","technology","jquery","node.js"]}
+
 const { default: Axios } = require("axios")
 
 const entryPoint = document.querySelector ('.span')
 const topics = document.querySelector ('.topics')
 const span = document.querySelector ('.title')
 
-function tabMaker({topics}){
+function tabMaker(topic){
 const newTab = document.createElement ('div')
-newTab.classList.add ('newTab')
-span.appendChild(newTab)    
+newTab.classList.add ('tab')
 
-newTab.textContent= topics
+topics.appendChild(newTab)    
 
+newTab.textContent= topic
 
-// array.forEach(item =>{
-//     const newTab = document.createElement ('div')
-//     newTab.classList.add ('newTab')
-//     span.appendChild.apply(newTab) 
-
-// })
 
 return newTab
-
 }
-
 
 axios.get ('https://lambda-times-api.herokuapp.com/topics')
 .then (stuff =>{
-   
-    const tabArray= stuff.data
-
-    tabArray.forEach(URL=>{
-    const tab=tabMaker({topics})
-    entryPoint.appendChild(tab)
+    const tabArray= stuff.data.topics
+    tabArray.forEach(topic =>{
+    const tab = tabMaker (topic)
 })
-
+})
 .catch(err =>{
     console.log('error',err)
 })
-})
+
